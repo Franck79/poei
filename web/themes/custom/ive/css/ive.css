@@ -1,1 +1,75 @@
-a:link {color: red;}
+a{
+  
+  	color:#FF8C00;
+
+}
+a:visited{
+  
+  	color: #844;
+
+}
+
+.is-active, .site-branding__logo, .site-branding__text,.site-branding__name{
+	
+	font-family: "Times New Roman", Times, serif;
+	color:#FF8C00;
+
+}	
+
+#header{
+	
+    background-color: #000000;
+    background-image: none;
+
+}
+
+h2.node__title{
+
+	
+
+
+}
+
+#block-ive-serach{
+
+	background-color: #C0C0C0;
+
+}
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: white;
+  background: #FF8C00;
+}
+
+.p{
+
+	color:#FFFFFF;
+	background-color: #000000;
+
+}
+#block-ive-bienvenue {
+	-moz-box-shadow: 5px 5px 5px 0px #8e8e8e;
+	-webkit-box-shadow: 5px 5px 5px 0px #8e8e8e;
+	-o-box-shadow: 5px 5px 5px 0px #8e8e8e;
+	box-shadow: 5px 5px 5px 0px #8e8e8e;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#8e8e8e, Direction=134, Strength=5);
+	padding: 20px;
+	background: #eeeeee;
+	border: 1px solid #bbbbbb;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+
+}
+
+#main{
+
+	background-color: #5a5a5a;
+}
+
+.new_region{
+	margin: 0 auto;
+	width: calc(50%);
+}
+
+
