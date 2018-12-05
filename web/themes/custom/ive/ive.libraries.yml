@@ -2,6 +2,10 @@ ive:
  css:
   theme:
     css/ive.css: {}
+article_teaser:
+  css:
+    layout:
+      css/components/article_teaser.css: {}
 global-styling:
   version: VERSION
   css:
@@ -59,6 +63,7 @@ global-styling:
       css/components/buttons.css: {}
       css/components/image-button.css: {}
       css/components/ui-dialog.css: {}
+
     layout:
       css/layout.css: {}
     theme:
