@@ -1,7 +1,11 @@
+foursquares:
+  css:
+    layout:
+      layouts/foursquares/foursquares.css: {}
 ive:
- css:
-  theme:
-    css/ive.css: {}
+  css:
+   theme:
+     css/ive.css: {}
 article_teaser:
   css:
     layout:
