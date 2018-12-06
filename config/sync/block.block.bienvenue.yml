@@ -1,0 +1,25 @@
+uuid: ad196e65-b631-4f26-b176-d8c9d515dea9
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2aa74731-8747-4971-aa6c-82f9e50c0df5'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: bienvenue
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:2aa74731-8747-4971-aa6c-82f9e50c0df5'
+settings:
+  id: 'block_content:2aa74731-8747-4971-aa6c-82f9e50c0df5'
+  label: Bienvenue
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

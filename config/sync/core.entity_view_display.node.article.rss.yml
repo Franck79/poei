@@ -1,6 +1,6 @@
 uuid: 321c7682-4c7a-4244-a553-4439d4107a40
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.rss
@@ -10,7 +10,13 @@ dependencies:
     - field.field.node.article.field_tags
     - node.type.article
   module:
+    - field_layout
+    - layout_discovery
     - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
 _core:
   default_config_hash: 2rIr6K5Q0UQ9khg0zE_CK-PtJH76UL-BDDZcZnZzwCc
 id: node.article.rss
@@ -26,3 +32,4 @@ hidden:
   comment: true
   field_image: true
   field_tags: true
+  langcode: true
