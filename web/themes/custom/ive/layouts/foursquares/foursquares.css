@@ -1,0 +1,10 @@
+.layout-foursquares {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.layout-foursquares div {
+    flex: 0 0 40%;
+    border: dimgrey solid;
+    box-sizing:border-box;
+}

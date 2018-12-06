@@ -1,0 +1,24 @@
+{% if content %}
+    <div class="layout-foursquares">
+        {% if content.top_left %}
+            <div class="foursquares-top-left">
+                {{ content.top_left }}
+            </div>
+        {% endif %}
+        {% if content.top_right %}
+            <div class="foursquares-top-right">
+                {{ content.top_right }}
+            </div>
+        {% endif %}
+        {% if content.bottom_left %}
+            <div class="foursquares-bottom-left">
+                {{ content.bottom_left }}
+            </div>
+        {% endif %}
+        {% if content.bottom_right %}
+            <div class="foursquares-bottom-left">
+                {{ content.bottom_right }}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
