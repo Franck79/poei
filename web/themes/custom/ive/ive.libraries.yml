@@ -1,7 +1,23 @@
+js:
+  js:
+    js/ive.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+
+foursquares:
+  css:
+    layout:
+      layouts/foursquares/foursquares.css: {}
 ive:
- css:
-  theme:
-    css/ive.css: {}
+  css:
+   theme:
+     css/ive.css: {}
+article_teaser:
+  css:
+    layout:
+      css/components/article_teaser.css: {}
 global-styling:
   version: VERSION
   css:
@@ -64,7 +80,6 @@ global-styling:
     theme:
       css/colors.css: {}
       css/print.css: { media: print }
-
 
 messages:
   version: VERSION
