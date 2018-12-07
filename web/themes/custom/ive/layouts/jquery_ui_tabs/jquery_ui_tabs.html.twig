@@ -1,0 +1,38 @@
+{% if content %}
+<div class="tab-contener">
+    <ul>
+        {% if content.first_tab|first|length != '0' %}
+        <li><a href="#tabs-1">{{ content.first_tab|first['#title'] ? content.first_tab|first['#title'] : 'first tab'}}</a></li>
+        {% endif %}
+        {% if content.second_tab|first|length != '0' %}
+        <li><a href="#tabs-2">{{ content.second_tab|first['#title'] ? content.second_tab|first['#title'] : 'second tab'}}</a></li>
+        {% endif %}
+        {% if content.third_tab|first|length != '0' %}
+        <li><a href="#tabs-3">{{ content.third_tab|first['#title'] ? content.third_tab|first['#title'] : 'third tab'}}</a></li>
+        {% endif %}
+        {% if content.fourth_tab|first|length != '0' %}
+        <li><a href="#tabs-4">{{ content.fourth_tab|first['#title'] ? content.fourth_tab|first['#title'] : 'fourth tab'}}</a></li>
+        {% endif %}
+    </ul>
+    {% if content.first_tab %}
+    <div class="first-tab" id="tabs-1">
+        {{ content.first_tab }}
+    </div>
+    {% endif %}
+    {% if content.second_tab %}
+    <div class="second-tab" id="tabs-2">
+        {{ content.second_tab }}
+    </div>
+    {% endif %}
+    {% if content.third_tab %}
+    <div class="third-tab" id="tabs-3">
+        {{ content.third_tab }}
+    </div>
+    {% endif %}
+    {% if content.fourth_tab %}
+    <div class="fourth-tab" id="tabs-4">
+        {{ content.fourth_tab }}
+    </div>
+    {% endif %}
+</div>
+{% endif %}

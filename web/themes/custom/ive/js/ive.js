@@ -1,4 +1,4 @@
-(function($, Drupal, durpalSettings) {
+(function($, Drupal, drupalSettings) {
    $(document).ready(function() {
        //alert('Hello !');
        $("a[href^='http']").attr('target', '_blank');

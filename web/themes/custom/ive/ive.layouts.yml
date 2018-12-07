@@ -15,3 +15,21 @@ layout_foursquare:
       label: Bottom left
     bottom_right:
       label: Bottom right
+
+jquery_ui_tabs:
+  label: jQuery UI Tabs
+  path: layouts/jquery_ui_tabs
+  template: jquery_ui_tabs
+  library: ive/jquery_ui_tabs
+  category: Ive
+  default_region: first_tab
+  icon: jqueryui.png
+  regions:
+    first_tab:
+      label: First tab
+    second_tab:
+      label: Second tab
+    third_tab:
+      label: Third tab
+    fourth_tab:
+      label: Fourth tab

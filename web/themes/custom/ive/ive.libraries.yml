@@ -1,3 +1,9 @@
+jquery_ui_tabs:
+  js:
+    layouts/jquery_ui_tabs/jquery_ui_tabs.js: {}
+  dependencies:
+    - core/jquery.ui.tabs
+
 js:
   js:
     js/ive.js: {}
