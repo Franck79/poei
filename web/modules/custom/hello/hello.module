@@ -1,0 +1,115 @@
+<?php
+  use Drupal\Core\Routing\RouteMatchInterface;
+  use Drupal\user\UserInterface;
+  use Drupal\Core\Session\AccountInterface;
+
+  function hello_help($route_name, RouteMatchInterface $route_match) {
+    switch ($route_name) {
+
+      // Main module help for the block module.
+      case 'help.page.hello':
+        return '<p>' . t('Blocks are boxes of content rendered into an area, or region, of a web page. The default theme Bartik, for example, implements the regions "Sidebar first", "Sidebar second", "Featured", "Content", "Header", "Footer", etc., and a block may appear in any one of these areas. The <a href=":blocks">blocks administration page</a> provides a drag-and-drop interface for assigning a block to a region, and for controlling the order of blocks within regions.', [
+            ':blocks' => \Drupal::url('block.admin_display'),
+          ]) . '</p>';
+
+      // Help for another path in the block module.
+      case 'block.admin_display':
+        return '<p>' . t('This page provides a drag-and-drop interface for assigning a block to a region, and for controlling the order of blocks within regions. Since not all themes implement the same regions, or display regions in the same way, blocks are positioned on a per-theme basis. Remember that your changes will not be saved until you click the <em>Save blocks</em> button at the bottom of the page.') . '</p>';
+    }
+  }
+
+  function hello_cron() {
+
+    // Short-running operation example, not using a queue:
+    // Delete all expired records since the last cron run.
+    drupal_set_message('Hello');
+    /* $expires = \Drupal::state()
+       ->get('hello.last_check', 0);
+     \Drupal::database()
+       ->delete('hello_table')
+       ->condition('expires', $expires, '>=')
+       ->execute();
+     \Drupal::state()
+       ->set('hello.last_check', REQUEST_TIME);
+
+     // Long-running operation example, leveraging a queue:
+     // Queue news feeds for updates once their refresh interval has elapsed.
+     $queue = \Drupal::queue('aggregator_feeds');
+     $ids = \Drupal::entityManager()
+       ->getStorage('aggregator_feed')
+       ->getFeedIdsToRefresh();
+     foreach (Feed::loadMultiple($ids) as $feed) {
+       if ($queue
+         ->createItem($feed)) {
+
+         // Add timestamp to avoid queueing item more than once.
+         $feed
+           ->setQueuedTime(REQUEST_TIME);
+         $feed
+           ->save();
+       }
+     }
+     $ids = \Drupal::entityQuery('aggregator_feed')
+       ->condition('queued', REQUEST_TIME - 3600 * 6, '<')
+       ->execute();
+     if ($ids) {
+       $feeds = Feed::loadMultiple($ids);
+       foreach ($feeds as $feed) {
+         $feed
+           ->setQueuedTime(0);
+         $feed
+           ->save();
+       }
+     }*/
+  }
+
+  /**
+ * @param \Drupal\user\UserInterface $account
+ */
+
+function hello_user_login(UserInterface $account) {
+
+  $database = \Drupal::database();
+
+  $user_id = $account->id();
+
+  $database->insert('hello_user_statistics')
+            ->fields([
+              'uid' => $user_id,
+              'time' => REQUEST_TIME,
+              'action' => '1',
+            ])
+            ->execute();
+
+  \Drupal::messenger()->addMessage(t('Welcome dear %name !', ['%name' => $account->getAccountName()]));
+
+}
+
+function hello_user_logout(AccountInterface $account) {
+
+  $database = \Drupal::database();
+
+  $user_id = $account->id();
+
+  $database->insert('hello_user_statistics')
+            ->fields([
+              'uid' => $user_id,
+              'time' => REQUEST_TIME,
+              'action' => '0',
+            ])
+            ->execute();
+
+}
+
+function hello_user_delete(UserInterface $account) {
+
+  $database = \Drupal::database();
+  //ksm($account);
+  $database->delete('hello_user_statistics')
+    ->condition('uid', $account->id())
+    ->execute();
+
+}
+
+
+

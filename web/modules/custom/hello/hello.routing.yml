@@ -1,0 +1,30 @@
+hello.hello:
+  path: '/hello/{param}'
+  defaults:
+    _title: 'hello'
+    _controller: '\Drupal\hello\Controller\HelloController::content'
+    param: ''
+  requirements:
+    _access: 'TRUE'
+hello.json:
+  path: '/hello-json'
+  defaults:
+    _title: 'hello JSON'
+    _controller: '\Drupal\hello\Controller\HelloController::json'
+  requirements:
+    _access: 'TRUE'
+hello.nodelist:
+  path: '/hello-nodelist/{param}'
+  defaults:
+    _title: 'hello nodelist'
+    _controller: '\Drupal\hello\Controller\NodelistController::nodetype'
+    param: ''
+  requirements:
+    _access: 'TRUE'
+hello.statistics:
+  path: '/user/{user}/statistics'
+  defaults:
+    _title: 'Statistics connections'
+    _controller: '\Drupal\hello\Controller\StatisticsController::count_connections'
+  requirements:
+    _access: 'TRUE'
