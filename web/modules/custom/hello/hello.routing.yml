@@ -28,3 +28,12 @@ hello.statistics:
     _controller: '\Drupal\hello\Controller\StatisticsController::count_connections'
   requirements:
     _access: 'TRUE'
+
+hello.form:
+  path: '/hello-form'
+  defaults:
+    _form: '\Drupal\hello\Form\HelloForm'
+    _title: 'Hello Form'
+  requirements:
+    _access: 'TRUE'
+  
