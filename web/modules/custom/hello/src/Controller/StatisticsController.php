@@ -18,12 +18,16 @@
                               ->execute();
       $rows = [];
 
+      $connexions_number = 0;
+
       foreach($result_stats as $stat) {
 
         $rows[] = [
 
           \Drupal::service('date.formatter')->format($stat->time),
           $stat->action == '1' ? $this->t('Login') : $this->t('Logout')];
+
+        $connexions_number += $stat->action;
 
       }
 
@@ -33,8 +37,15 @@
         '#rows' => $rows,
       ];
 
+      $message = [
+        '#theme' => 'hello_user_connexion',
+        '#user' => $user,
+        '#count' => $connexions_number,
+      ];
+
       return [
-        'table' => $tab
+        'table' => $tab,
+        'hello_user_connexion' => $message,
       ];
 
     }

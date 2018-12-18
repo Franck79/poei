@@ -27,7 +27,7 @@ hello.statistics:
     _title: 'Statistics connections'
     _controller: '\Drupal\hello\Controller\StatisticsController::count_connections'
   requirements:
-    _access: 'TRUE'
+    _permission: 'administer hello'
 
 hello.form:
   path: '/hello-form'
@@ -35,5 +35,13 @@ hello.form:
     _form: '\Drupal\hello\Form\HelloForm'
     _title: 'Hello Form'
   requirements:
-    _access: 'TRUE'
+    _permission: 'ma permission'
+
+hello.adminform:
+  path: '/admin/adminform'
+  defaults:
+    _form: '\Drupal\hello\Form\HelloAdminForm'
+    _title: 'Admin Form'
+  requirements:
+    _permission: 'administer hello'
   

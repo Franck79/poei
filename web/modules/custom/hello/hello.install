@@ -62,3 +62,9 @@ function hello_update_8001() {
   $schema->addField('hello_user_statistics', 'uid', $field_spec);
 
 }
+
+function hello_uninstall() {
+
+  \Drupal::state()->delete('hello_state');
+
+}

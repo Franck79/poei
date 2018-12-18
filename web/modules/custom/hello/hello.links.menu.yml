@@ -1,7 +1,16 @@
 hello.page:
-  title: 'Hello!'
+  title: Hello!
   route_name: hello.hello
-  description: 'Hello page'
+  description: Hello page
   menu_name: main
   weight: 1
+
+hello.adminform:
+  title: Admin Form
+  parent: system.admin_config
+  route_name: hello.adminform
+  description: adminform page
+  menu_name: admin
+
+
 

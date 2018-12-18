@@ -181,6 +181,8 @@ class HelloForm extends FormBase {
 
     }
 
+    $state = \Drupal::state()->set('hello_state',REQUEST_TIME);
+
     drupal_set_message('Resultat: ' . $first_value . $operator . $second_value . ' = ' . $result);
 
     $form_state->setRebuild();
