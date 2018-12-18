@@ -1,0 +1,6 @@
+ma permission:
+  title: 'Ma permission'
+  description: 'Bloc session access'
+administer hello:
+  title: 'Permission Statistics'
+  description: 'Statistics access'

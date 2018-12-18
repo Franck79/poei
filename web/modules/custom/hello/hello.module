@@ -3,6 +3,7 @@
   use Drupal\user\UserInterface;
   use Drupal\Core\Session\AccountInterface;
 
+
   function hello_help($route_name, RouteMatchInterface $route_match) {
     switch ($route_name) {
 
@@ -18,49 +19,22 @@
     }
   }
 
-  function hello_cron() {
+   function hello_cron() {
 
-    // Short-running operation example, not using a queue:
-    // Delete all expired records since the last cron run.
-    drupal_set_message('Hello');
-    /* $expires = \Drupal::state()
-       ->get('hello.last_check', 0);
-     \Drupal::database()
-       ->delete('hello_table')
-       ->condition('expires', $expires, '>=')
-       ->execute();
-     \Drupal::state()
-       ->set('hello.last_check', REQUEST_TIME);
+    //drupal_set_message('Hello');
 
-     // Long-running operation example, leveraging a queue:
-     // Queue news feeds for updates once their refresh interval has elapsed.
-     $queue = \Drupal::queue('aggregator_feeds');
-     $ids = \Drupal::entityManager()
-       ->getStorage('aggregator_feed')
-       ->getFeedIdsToRefresh();
-     foreach (Feed::loadMultiple($ids) as $feed) {
-       if ($queue
-         ->createItem($feed)) {
+    $purge_day_number = \Drupal::config('hello.settings')->get('purge_days_number');
 
-         // Add timestamp to avoid queueing item more than once.
-         $feed
-           ->setQueuedTime(REQUEST_TIME);
-         $feed
-           ->save();
-       }
-     }
-     $ids = \Drupal::entityQuery('aggregator_feed')
-       ->condition('queued', REQUEST_TIME - 3600 * 6, '<')
-       ->execute();
-     if ($ids) {
-       $feeds = Feed::loadMultiple($ids);
-       foreach ($feeds as $feed) {
-         $feed
-           ->setQueuedTime(0);
-         $feed
-           ->save();
-       }
-     }*/
+    if($purge_day_number != 0) {
+
+      $delete_rec_number = \Drupal::database()->delete('hello_user_statistics')
+        ->condition('time', REQUEST_TIME - $purge_day_number * (24 * 3600), '<=')
+        ->execute();
+    }
+
+    \Drupal::messenger()->addMessage(t('%delete_records records has benn deleted',
+      ['%delete_records' => $delete_rec_number]));
+
   }
 
   /**
@@ -108,6 +82,19 @@ function hello_user_delete(UserInterface $account) {
   $database->delete('hello_user_statistics')
     ->condition('uid', $account->id())
     ->execute();
+
+}
+
+function hello_theme() {
+
+  return array(
+    'hello_user_connexion' => array(
+      'template' => 'hello_user_connexion',
+      'variables' => array('user' => NULL, 'count' => NULL),
+
+    ),
+
+  );
 
 }
 
