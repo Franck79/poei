@@ -49,7 +49,7 @@ class HelloForm extends FormBase {
     );
 
     $form['operation'] = array(
-      '#type' => 'radios',
+       '#type' => 'radios',
       '#title' => $this->t('Operation'),
       '#description' => $this->t('Choose operator for processing'),
       '#default_value' => 'Ajouter',
