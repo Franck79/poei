@@ -2,7 +2,7 @@
   use Drupal\Core\Routing\RouteMatchInterface;
   use Drupal\user\UserInterface;
   use Drupal\Core\Session\AccountInterface;
-
+  use Drupal\Core\Form\FormStateInterface;
 
   function hello_help($route_name, RouteMatchInterface $route_match) {
     switch ($route_name) {
@@ -47,13 +47,27 @@ function hello_user_login(UserInterface $account) {
 
   $user_id = $account->id();
 
-  $database->insert('hello_user_statistics')
-            ->fields([
-              'uid' => $user_id,
-              'time' => REQUEST_TIME,
-              'action' => '1',
-            ])
-            ->execute();
+  $roles = \Drupal::config('hello.settings')->get('user_statistics_roles');
+
+  $user_roles = $account->getRoles();
+
+  $diff = array_intersect($roles,$user_roles);
+
+  //ksm($diff);
+
+  if(count($diff > 0)) {
+
+    $database->insert('hello_user_statistics')
+              ->fields([
+                'uid' => $user_id,
+                'time' => REQUEST_TIME,
+                'action' => '1',
+              ])
+                ->execute();
+
+  }
+
+
 
   \Drupal::messenger()->addMessage(t('Welcome dear %name !', ['%name' => $account->getAccountName()]));
 
@@ -65,13 +79,23 @@ function hello_user_logout(AccountInterface $account) {
 
   $user_id = $account->id();
 
-  $database->insert('hello_user_statistics')
-            ->fields([
-              'uid' => $user_id,
-              'time' => REQUEST_TIME,
-              'action' => '0',
-            ])
-            ->execute();
+  $roles = \Drupal::config('hello.settings')->get('user_statistics_roles');
+
+  $user_roles = $account->getAccount()->getRoles();
+
+  $diff = array_intersect($roles,$user_roles);
+
+  if(count($diff > 0)) {
+
+      $database->insert('hello_user_statistics')
+        ->fields([
+          'uid' => $user_id,
+          'time' => REQUEST_TIME,
+          'action' => '0',
+        ])
+        ->execute();
+
+  }
 
 }
 
@@ -97,6 +121,53 @@ function hello_theme() {
   );
 
 }
+
+function hello_form_user_admin_settings_alter(array &$form, &$form_state) {
+
+  //ksm($form);
+
+  $user_statistics_roles = \Drupal::config('hello.settings')->get('user_statistics_roles');
+
+  $roles_name = \Drupal::entityTypeManager()->getStorage('user_role')->loadMultiple();
+
+  $roles = [];
+
+  foreach($roles_name as $value) {
+
+    $roles[$value->id()] = $value->label();
+
+  }
+
+  unset($roles['anonymous']);
+  unset($roles['authenticated']);
+
+  //ksm($roles);
+  $form['user_statistics'] = array(
+    '#type' => 'details',
+    '#title' => t('Roles for witch to collect activity statistics.'),
+    '#open' => TRUE,
+    '#weight' => '-100',
+
+  );
+
+  $form['user_statistics']['roles'] = array(
+      '#type' => 'checkboxes',
+      '#title' => t('Roles Users.'),
+      '#options' => $roles,
+      '#default_value' => $user_statistics_roles,
+  );
+
+    $form['#submit'][] = 'hello_admin_user_settings_submit';
+
+}
+
+function hello_admin_user_settings_submit($form, FormStateInterface $form_state) {
+
+  $config = \Drupal::configFactory()->getEditable('hello.settings');
+  $config->set('user_statistics_roles', $form_state->getValue('roles'))->save();
+
+}
+
 
 
 
