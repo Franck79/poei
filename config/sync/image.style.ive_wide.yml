@@ -1,7 +1,11 @@
-uuid: 136eb71c-2313-4e4c-9556-639310c2f3a8
+uuid: 54c7a2b8-511c-42fa-94c5-2a07132df2e6
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_effects
+_core:
+  default_config_hash: M8sZnOHVMEyJhtc0E6TuEpJpODHZN2o7ghdj6tT428U
 name: ive_wide
 label: 'Ive wide'
 effects:
@@ -13,3 +17,9 @@ effects:
       width: 425
       height: null
       upscale: false
+  d61aa696-82cb-4fd4-807b-2829fdee9f41:
+    uuid: d61aa696-82cb-4fd4-807b-2829fdee9f41
+    id: image_effects_color_shift
+    weight: 2
+    data:
+      RGB: '#9BDD22'

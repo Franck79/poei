@@ -1,0 +1,23 @@
+uuid: 5013a58b-02db-4dea-aa00-bbb7453d1305
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lien_externe
+    - node.type.article
+  module:
+    - link
+id: node.article.field_lien_externe
+field_name: field_lien_externe
+entity_type: node
+bundle: article
+label: 'Lien externe'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

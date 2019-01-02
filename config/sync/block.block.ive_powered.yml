@@ -1,4 +1,4 @@
-uuid: 50b005df-ae79-4256-9855-a0c822dcb2e4
+uuid: 1541e6ca-5914-47df-b15f-4003d106e561
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ _core:
 id: ive_powered
 theme: ive
 region: footer_fifth
-weight: 10
+weight: -6
 provider: null
 plugin: system_powered_by_block
 settings:

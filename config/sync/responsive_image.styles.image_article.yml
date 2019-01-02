@@ -1,4 +1,4 @@
-uuid: f383f7cb-1536-4675-8819-d6a42e14a145
+uuid: 4dcf5ef5-5b90-4b35-a984-b5a7a715840c
 langcode: en
 status: true
 dependencies:
@@ -6,8 +6,8 @@ dependencies:
     - image.style.ive_mobile
     - image.style.ive_narrow
     - image.style.ive_wide
-  theme:
-    - ive
+_core:
+  default_config_hash: c3qQhKV9Zcuw7X8ZjPidPlQCC4DqdB3CYctTp67CmhQ
 id: image_article
 label: 'Image article'
 image_style_mappings:

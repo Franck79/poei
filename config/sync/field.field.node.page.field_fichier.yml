@@ -1,0 +1,27 @@
+uuid: c704653e-192f-4f60-b79c-35d5f0203a4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fichier
+    - node.type.page
+  module:
+    - file
+id: node.page.field_fichier
+field_name: field_fichier
+entity_type: node
+bundle: page
+label: Fichier
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
