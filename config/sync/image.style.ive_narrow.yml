@@ -1,7 +1,9 @@
-uuid: 37a2a1da-84f6-4d6e-9220-2489ee7914d6
+uuid: 05c963b7-2d70-48bb-85e1-76fa7cc0a669
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: d25WASmDaiHtijkMCvv-2ZQ0yqgxkKqsUjIB0YQDWss
 name: ive_narrow
 label: 'Ive narrow'
 effects:

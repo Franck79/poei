@@ -1,4 +1,4 @@
-uuid: a4f40a7f-ec48-4140-98c4-510cfcb36dfc
+uuid: b5154887-b185-45df-80df-f0ff3f0c6e57
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ _core:
 id: ive_page_title
 theme: ive
 region: content
-weight: -50
+weight: -7
 provider: null
 plugin: page_title_block
 settings:

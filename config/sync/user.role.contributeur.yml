@@ -1,0 +1,9 @@
+uuid: acbb7376-c2a7-40e2-9e78-ca7edbd3ee7e
+langcode: en
+status: true
+dependencies: {  }
+id: contributeur
+label: Contributeur
+weight: 3
+is_admin: null
+permissions: {  }

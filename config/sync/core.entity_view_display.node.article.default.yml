@@ -1,4 +1,4 @@
-uuid: 75aaae06-e0a6-4362-8595-ab362ed03d2a
+uuid: dfdb3b9d-07a5-47ec-b971-0e716d081d5d
 langcode: en
 status: true
 dependencies:
@@ -7,24 +7,23 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+    - field.field.node.article.field_lien_externe
     - field.field.node.article.field_tags
     - node.type.article
-    - responsive_image.styles.image_article
   module:
     - comment
     - field_layout
+    - image
     - ive
-    - responsive_image
+    - link
     - text
     - user
   theme:
     - ive
 third_party_settings:
   field_layout:
-    id: layout_foursquare
+    id: jquery_ui_tabs
     settings: {  }
-_core:
-  default_config_hash: ChmU3AVqDKU32A_fyChG0W9dTRKmVBR58B6OClCLvZI
 id: node.article.default
 targetEntityType: node
 bundle: article
@@ -33,32 +32,44 @@ content:
   body:
     type: text_default
     weight: 1
-    region: top_right
+    region: second_tab
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    label: hidden
   comment:
     type: comment_default
     weight: 3
-    region: bottom_right
-    label: above
+    region: third_tab
+    label: hidden
     settings:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
   field_image:
-    type: responsive_image
+    type: image
     weight: 0
-    region: top_left
+    region: first_tab
+    label: hidden
     settings:
-      responsive_image_style: image_article
+      image_style: ''
       image_link: ''
     third_party_settings: {  }
+  field_lien_externe:
+    type: link
+    weight: 4
+    region: fourth_tab
     label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
   field_tags:
     type: entity_reference_label
     weight: 2
-    region: bottom_left
+    region: second_tab
     label: above
     settings:
       link: true

@@ -1,4 +1,4 @@
-uuid: e7b00956-6720-4927-859d-6b57731386ed
+uuid: fd48571f-7bbc-45a3-9b1a-32e8c752fdc2
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ _core:
 id: ive_local_tasks
 theme: ive
 region: content
-weight: -40
+weight: -6
 provider: null
 plugin: local_tasks_block
 settings:

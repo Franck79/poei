@@ -1,4 +1,4 @@
-uuid: fbe7d0df-7e5e-45dd-9ec5-f02a65925e11
+uuid: b3149d7d-f65a-434b-90ef-1b08c41df20a
 langcode: en
 status: true
 dependencies:
@@ -13,7 +13,7 @@ _core:
 id: ive_footer
 theme: ive
 region: footer_fifth
-weight: 0
+weight: -7
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

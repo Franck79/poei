@@ -1,0 +1,20 @@
+uuid: 1ef9e2f1-d515-48bc-8d80-1143c1850430
+langcode: en
+status: true
+dependencies:
+  module:
+    - console_tests
+  theme:
+    - ive
+id: consoletest
+theme: ive
+region: sidebar_second
+weight: -5
+provider: null
+plugin: console_test_block
+settings:
+  id: console_test_block
+  label: 'Console Test'
+  provider: console_tests
+  label_display: visible
+visibility: {  }
