@@ -1,0 +1,5 @@
+name: Config Override
+description: Config the site name
+type: module
+core:
+package : Training
