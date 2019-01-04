@@ -20,6 +20,11 @@ drush updb
 echo Update modules.
 drush cr
 
+#mis a jour des schémas de type entité
+drush entup
+echo Update schemas.
+drush cr
+
 #Export config prod
 drush csex prod -y
 echo Exports config Prod.
@@ -32,7 +37,6 @@ drush cr
 #Ajout des config de prod
 git add config/prod
 git commit -m 'Ajout des config de prod.'
-
 
 #Fin maintenance
 #drush sset system.maintenance_node 0
