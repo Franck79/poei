@@ -1,0 +1,97 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/en\/user\/6?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+        }
+    },
+    "uid": [
+        {
+            "value": 6
+        }
+    ],
+    "uuid": [
+        {
+            "value": "fd7d7339-5ce4-436a-9785-aa0f285d9c9f"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "preferred_langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "preferred_admin_langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "toto"
+        }
+    ],
+    "mail": [
+        {
+            "value": "toto@mail.com"
+        }
+    ],
+    "timezone": [
+        {
+            "value": "Europe\/Paris"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "created": [
+        {
+            "value": "2018-12-11T09:01:14+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2018-12-20T09:32:43+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "access": [
+        {
+            "value": "2018-12-20T09:32:59+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "login": [
+        {
+            "value": "2018-12-20T09:32:59+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "init": [
+        {
+            "value": "toto@mail.com"
+        }
+    ],
+    "roles": [
+        {
+            "target_id": "contributeur"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ]
+}
