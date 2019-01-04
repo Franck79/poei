@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #Début maintenance
-drush sset system.maintenance_node 1
+#drush sset system.maintenance_node 1
+#drush config-set readonlymode.settings enabled 1 -y
 echo Maintenance mode enable.
 drush cr
 
@@ -34,6 +35,7 @@ git commit -m 'Ajout des config de prod.'
 
 
 #Fin maintenance
-drush sset system.maintenance_node 0
+#drush sset system.maintenance_node 0
+#drush config-set readonlymode.settings enabled 0 -y
 drush cr
 echo Site is online.
