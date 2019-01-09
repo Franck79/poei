@@ -1,5 +1,6 @@
 module:
   admin_toolbar: 0
+  annonce: 0
   automated_cron: 0
   block: 0
   block_content: 0
@@ -27,6 +28,7 @@ module:
   field_layout: 0
   file: 0
   file_entity: 0
+  file_from_url: 0
   file_mdm: 0
   file_mdm_exif: 0
   file_mdm_font: 0
@@ -56,6 +58,7 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  toolbar_themes: 0
   tour: 0
   update: 0
   user: 0
