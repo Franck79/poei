@@ -1,0 +1,65 @@
+<?php
+
+  use Drupal\Core\Database\Database;
+
+  /** @file ...*/
+
+  /**
+   * Implements hook_schema().
+   */
+
+
+function annonce_schema() {
+
+  $schema['annonce_history'] = [
+    'description' => 'Stores annonce views.',
+    'fields' => [
+      'id' => [
+        'description' => 'Primary Key: Unique history ID.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'time' => [
+        'description' => 'Timestamp of user action.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'uid' => [
+        'description' => 'User Id.',
+        'type' => 'int',
+        'length' => 10,
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+      ],
+      'annonce_id' => [
+        'description' => 'Annonce Id.',
+        'type' => 'int',
+        'length' => 10,
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+  
+}
+
+function annonce_update_8001() {
+
+  $schema = Database::getConnection()->schema();
+
+  $field_spec = [
+    'type' => 'int',
+    'length' => 10,
+    'unsigned' => TRUE,
+    'description' => "User Id",
+    'not null' => TRUE,
+  ];
+
+  $schema->addField('annonce_history', 'uid', $field_spec);
+
+}
