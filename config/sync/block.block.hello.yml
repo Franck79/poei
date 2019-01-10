@@ -25,5 +25,5 @@ visibility:
     negate: null
     'Bloc Annonce': '2019-01-22'
     context_mapping: {  }
-    start_date: ''
-    end_date: ''
+    start_date: '2019-01-10'
+    end_date: '2019-01-18'
