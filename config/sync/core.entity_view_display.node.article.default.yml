@@ -14,6 +14,7 @@ dependencies:
     - comment
     - field_layout
     - image
+    - ive
     - link
     - text
     - user
@@ -72,6 +73,11 @@ content:
     label: above
     settings:
       link: true
+    third_party_settings: {  }
+  reusable_form:
+    weight: 100
+    region: first_tab
+    settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true
