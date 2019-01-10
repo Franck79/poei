@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - bloc_date
     - hello
   theme:
     - ive
@@ -17,4 +18,12 @@ settings:
   label: Hello!
   provider: hello
   label_display: visible
-visibility: {  }
+visibility:
+  date_condition:
+    id: date_condition
+    Date: Date
+    negate: null
+    'Bloc Annonce': '2019-01-22'
+    context_mapping: {  }
+    start_date: ''
+    end_date: ''
