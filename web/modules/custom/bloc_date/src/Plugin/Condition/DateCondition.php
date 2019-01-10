@@ -99,7 +99,7 @@ class DateCondition extends ConditionPluginBase {
 
       $end_date = $this->configuration['end_date'] ? new DrupalDateTime($this->configuration['end_date']) : NULL;
 
-      return (!$start_date || ($start_date <= $today)) && (!$end_date || ($end_date <= $today));
+      return (!$start_date || ($start_date <= $today)) && (!$end_date || ($end_date >= $today));
 
     }
 
